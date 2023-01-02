@@ -1,0 +1,447 @@
+:root {
+    --black: #000000;
+    --d_black: #3a353b;
+    --trans_dark: #12121280;
+    --white: #fffefe;
+    --d_white: #e6e0d4;
+
+    --purple: #ae5ff4;
+    --l_purple: #e8d7eb;
+    --blue: #1950e9;
+    --green: #59e44c;
+    --yellow: #f4cc5f;
+    --l_yellow: #ede4c1;
+
+    --border:0 0 0 0.1em var(--black);
+    --border-anim: 0 0.45em 0 0.1em  var(--black);
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    color: var(--black);
+    font-size: 1rem;
+}
+body{
+    background-color: var(--green);
+}
+main{
+    padding-top: 2rem;
+    display: block;
+    background-color: var(--green);
+    padding-bottom: 5rem;
+}
+.main{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content:center;
+    padding-bottom: 3rem;
+}
+.inv_card{
+    cursor: pointer;
+    background-color: var(--l_purple);
+    display: inline-block;
+    height: 19rem;
+    width: 22rem;
+    margin: 0.5rem;
+    box-shadow: var(--border);
+    transition: 0.2s;
+}
+.inv_card:hover{
+    box-shadow: 
+    var(--border),
+    var(--border-anim);
+    transform: translateY(-0.3rem);
+    z-index: 1000;
+}
+.img{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-color:var(--white);
+    height: 12rem;
+    width: 20.5rem;
+    box-shadow: var(--border);
+    overflow: hidden;
+    margin: 0.75rem auto;
+}
+.imga{
+    width: 20.5rem;
+    transition: 0.2s;
+}
+
+.names{
+    margin: 1rem;
+}
+.cost, .cost_dis{
+    margin: 0.6rem 1rem;
+    transform: translateY(-0.3rem);
+}
+.bottom_sec{
+    z-index: 1300;
+    margin-top: 0.5rem;
+    display: flex;
+    justify-content: space-between;
+}
+.lowest_cost_size{
+    position: absolute;
+    margin-left: 1rem;
+    margin-top: -0.5rem;
+    color: var(--d_black);
+}
+.cardbutton, .cardbutton_dis{
+    cursor: pointer;    
+    color: var(--white);
+    box-shadow: var(--border);
+    background-color: var(--black);
+        margin-right: 1rem;
+        height: 2.5rem;
+        width: 7.5rem;
+        border: none;
+    z-index: 51;
+    transition: all 0.2s ease-in;
+    margin-top: 0.6rem;
+}
+.cardbutton:hover{
+    color: var(--black);
+    background-color: var(--green);
+    box-shadow: var(--border), 0 0.2em 0 0.1em  var(--black);
+    translate: 0 -0.2em;
+}
+.cardbutton_dis{
+    cursor:not-allowed;
+    color: var(--black);
+    background-color: var(--l_purple);
+}
+.heart{
+        display: inline-flex;
+        justify-content: center;
+        align-items:center;
+    background-color: var(--yellow);
+    box-shadow: var(--border);
+    position: absolute;
+        padding: 0.5rem;
+        width:1rem;
+        height:1rem;
+        margin: -0.2rem 19.25rem;
+    z-index: 50;
+    transition: all 0.2s ease-out;
+}
+.stock{
+    display: inline-block;
+    margin: 0.5rem 1rem;
+}
+.is_stock{
+        display: inline-flex;
+        justify-content: center;
+        align-items:center;
+    background-color: var(--white);
+    box-shadow: var(--border);
+    margin-right: 0.5rem;
+    margin-bottom: 0.5rem;
+    width: 1.8rem;
+    height: 1.8rem;
+    transition: 0.2s;
+}
+.sign_stock{
+    margin-bottom: 0.5rem;
+}
+.description{
+    display:none;
+    position: absolute;
+    width: 22rem;
+    height: fit-content;
+    box-shadow: var(--border);
+    background-color: var(--l_purple);
+    margin-top: -0.4rem;
+}
+.no_in_stock, .no_in_stock>.description{
+    background-color: var(--l_yellow);
+}
+.pages_container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.pages{
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    background-color: var(--l_yellow);
+    width: 2rem;
+    height: 2rem;
+    box-shadow: var(--border);
+    margin: 0 0.3rem;
+    transition: 0.2s;
+}
+.forward_page_dis, .back_page_dis, .current_page{
+    background-color:var(--l_purple);
+    cursor: not-allowed;
+}
+/*! Preview page */
+.preview_page {
+        top: 50%;
+        left: 50%;
+        margin-right: -50%;
+        transform: translate(-50%, -50%);
+        position: fixed;
+    z-index: 10000;
+}
+.exit_preview_screen{
+        top: 50%;
+        left: 50%;
+        margin-right: -50%;
+        transform: translate(-50%, -50%);
+        position: absolute;
+    background-color: var(--trans_dark);
+    height: 100vh;
+    width: calc(100vw - 17px);
+}
+.exit_preview_cross{
+    cursor: pointer;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+    margin-left: 57.5rem;
+    margin-top: -0.5rem;
+    height: 3rem;
+    width: 3rem;
+        box-shadow: var(--border);
+        background-color: var(--yellow);
+        transition: 0.2s;
+}
+.exit_preview_cross>p{
+    font-size: 2rem;
+    font-weight: 400;
+}
+.preview_page{
+        background-color: var(--l_purple);
+    box-sizing: border-box;  
+    width: 60rem;
+    height: 45rem;
+    padding: 2rem;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    box-shadow: var(--border); 
+}
+.preview_heart{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-color: var(--yellow);
+    box-shadow: var(--border);
+    position: absolute;
+        width: 3rem;
+        height: 3rem;
+        margin: 3.5rem 57.5rem;
+    transition: 0.2s ease-out;
+}
+.preview_heart>p{
+    font-size: 1.5rem;
+}
+/** galery top-left section*/
+.inner_galery_image{
+    width: 32rem;
+    transition: 0.2s ease-in;
+}
+.preview_imagegalery{
+    box-shadow: var(--border);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    width: 32rem;
+    height: 28rem;
+    overflow: hidden;
+}
+    .inner_back_image, .inner_next_image{
+        cursor: pointer;
+            position: absolute;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        height: 2.5rem;
+        width: 2.5rem;
+        background-color: var(--l_yellow);
+        box-shadow: var(--border);
+        transition: 0.2s;
+        margin-top: 28rem;
+    }
+    .inner_back_image{
+        margin-right: 3rem;
+    }
+    .inner_next_image{
+        margin-left: 3rem;
+    }
+    .inner_back_image>p, .inner_next_image>p{
+        font-size: 2rem;
+        font-weight: 300;
+    }
+/** name, id, sizes top-right section */
+.preview_name_sizes{
+    margin-left: 2rem;
+}
+.preview_inner_name{
+    max-width: 21.5rem;
+    margin-bottom: 0.3rem;
+}
+.inner_preview_sizes{
+    margin-top: 3rem;
+}
+    .inner_model_sizes{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        overflow: hidden auto;
+        height: 15rem;
+        width: 17rem;
+
+        margin-left: -0.6rem;
+    }
+    .inner_model_sizes::-webkit-scrollbar{
+        width: 0.5rem;
+    }
+    .inner_model_sizes::-webkit-scrollbar-track{
+        box-sizing: border-box;
+        box-shadow: var(--border);
+        background-color: var(--l_yellow);
+    }  
+    .inner_model_sizes::-webkit-scrollbar-thumb{
+        background-color: var(--black);
+        width: 0.4rem;
+    }
+
+    .preview_that_size, .preview_that_size_active{
+        transform: translateX(0.2rem);
+        cursor: pointer;
+        box-sizing: border-box;
+        
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        width: 15rem;
+        padding: 0.5rem;
+        margin-top: 0.5rem;
+
+        background-color: var(--white);
+        box-shadow: var(--border);
+        transition: 0.2s ease-in;
+    }
+    .preview_that_size_active{
+        background-color: var(--yellow);
+        cursor:default;
+    }
+    .preview_size_cost{
+        color: var(--d_black);
+        margin-right: 4rem;
+    }
+    .preview_size_size{
+        margin-left: 1rem;
+    }
+    .preview_that_size>p, .preview_that_size_active>p{
+        display: inline-block;
+    }
+
+/** bottom-left section */
+.inner_description_text{
+    margin-bottom: 0.2rem;
+}
+.inner_description_brand, .inner_description_model, .inner_description_sex, .inner_description_color, .preview_inner_id, .preview_inner_cost_sizesign{
+    color: var(--d_black);
+}
+
+/** bottom-right section */
+.preview_cost_and_buy{
+    display: flex;
+    justify-content: space-between;
+}
+.preview_inner_cost{
+    display: inline-block;
+}
+.preview_inner_cost_sizesign{
+    position: absolute;
+    transform: translateY(2.6rem);
+}
+.preview_inner_buy{
+    margin-top: -0.7rem;
+    /* transform: translateX(0.7rem); */
+    color: var(--white);
+    cursor: pointer;
+    height: 4rem;
+    width: 12rem;
+    border: none;
+    box-shadow: var(--border);
+    background-color: var(--black);
+    transition: 0.2s ease-in;
+}
+
+/* font-sizes */
+.preview_inner_cost{
+    font-size: 2.5rem;
+}
+.preview_inner_name {
+    font-size: 2rem;
+}
+.cost, .cost_dis{
+    font-size: 1.7rem;
+}
+.preview_inner_buy, .inner_description_text,.preview_inner_sizes, .cost_dis{
+    font-size: 1.5rem;
+}
+.preview_size_size{
+    font-size: 1.3rem;
+}
+.inner_description_brand, .inner_description_model, .inner_description_sex, .inner_description_color, .preview_inner_id, .preview_size_cost, .pages, .names{
+    font-size: 1.1rem;
+} 
+.lowest_cost_size, .is_stock>p{
+    font-size: 0.8rem;
+}
+
+/*! hovers  */
+.heart:hover, .preview_heart:hover {
+    transform: translateY(-.2rem);
+    box-shadow: var(--border), var(--border-anim);
+    background-color: var(--green);
+}
+.inv_card:hover .img img{
+    transform: translateY(0.5rem);
+    width: 20rem;
+}
+.inv_card:hover .heart{
+    z-index: 1001;
+}
+.inv_card:hover .description{
+    display:block;
+    box-shadow:  var(--border-anim);
+}
+
+.inner_galery_image:hover{
+    width: 36rem;
+}
+
+.is_stock:hover, .exit_preview_cross:hover, .forward_page:hover, .back_page:hover, .other_page:hover, .inner_back_image:hover, .inner_next_image:hover{
+    transform: translateY(-0.2rem);
+    box-shadow: var(--border),var(--border-anim);
+    background-color: var(--green)
+}
+.forward_page:hover, .back_page:hover, .other_page:hover,.inner_back_image:hover, .inner_next_image:hover{
+    background-color: var(--yellow);
+}
+.preview_inner_buy:hover{
+    color: var(--black);
+    background-color: var(--green);
+    box-shadow: var(--border), 0 0.2em 0 0.1em  var(--black);
+    translate: 0 -0.2em;
+}
+.preview_that_size:hover {
+    transform: translateY(-0.2rem) translateX(0.2rem);
+    box-shadow: var(--border),var(--border-anim);
+    background-color: var(--yellow);
+}
