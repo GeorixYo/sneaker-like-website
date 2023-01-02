@@ -1,3 +1,6 @@
+// Import stylesheets
+import './style.css';
+
 import { inventoryArr } from './inventory.js';
 
 //* sizes - 4-15.5
